@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SinoCam Logistics | Transit Tech Chine-Cameroun</title>
+    <meta name="description" content="Solution technologique de transit et de logistique entre la Chine et le Cameroun. Fret maritime, aérien et dédouanement avec suivi en temps réel.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <i data-lucide="boxes" class="text-accent"></i>
+                <span>SinoCam<span class="text-accent">.Logistics</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#tracking">Suivi</a>
+                <a href="#about">Réseau</a>
+                <a href="#contact" class="btn btn-outline">Nous Contacter</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="badge fade-up">Nouvelle Génération Logistique</div>
+            <h1 class="fade-up delay-1">Le Transit Chine-Cameroun, <br><span class="text-gradient">Repensé par la Technologie.</span></h1>
+            <p class="fade-up delay-2">Simplifiez vos importations avec une transparence totale, un suivi en temps réel et des délais garantis. De Guangzhou à Douala, nous gérons tout.</p>
+            <div class="hero-actions fade-up delay-3">
+                <a href="#tracking" class="btn btn-primary">
+                    Suivre un colis
+                    <i data-lucide="arrow-right"></i>
+                </a>
+                <a href="#services" class="btn btn-secondary">Découvrir nos solutions</a>
+            </div>
+            
+            <div class="stats-container fade-up delay-4">
+                <div class="stat-item">
+                    <h3>2M+</h3>
+                    <p>Tonnes Livrées</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15J</h3>
+                    <p>Délai Moyen (Mer)</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>Taux de Sécurité</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Infrastructures <span class="text-gradient">Connectées</span></h2>
+                <p>Des solutions complètes pour tous vos besoins d'importation, supportées par notre plateforme numérique.</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card glass-card hover-lift fade-up">
+                    <div class="card-icon">
+                        <i data-lucide="ship"></i>
+                    </div>
+                    <h3>Fret Maritime</h3>
+                    <p>Groupage (LCL) et conteneurs complets (FCL). Départs hebdomadaires depuis Shenzhen, Ningbo et Shanghai vers Douala et Kribi.</p>
+                </div>
+                <div class="card glass-card hover-lift fade-up delay-1">
+                    <div class="card-icon">
+                        <i data-lucide="plane"></i>
+                    </div>
+                    <h3>Fret Aérien Express</h3>
+                    <p>Solution ultra-rapide pour vos marchandises critiques. Livraison en 3 à 5 jours ouvrables avec dédouanement prioritaire.</p>
+                </div>
+                <div class="card glass-card hover-lift fade-up delay-2">
+                    <div class="card-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3>Dédouanement Digital</h3>
+                    <p>Processus douaniers automatisés et transparents. Évitez les retards grâce à notre expertise locale et notre conformité stricte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tracking-section section dark-section" id="tracking">
+        <div class="container tracking-container">
+            <div class="tracking-content fade-in">
+                <h2 class="section-title">Suivi Visuel <span class="text-accent">Temps Réel</span></h2>
+                <p>Ne perdez jamais de vue votre cargaison. Entrez votre numéro de connaissement ou de suivi pour localiser instantanément votre marchandise.</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Ex: SC-2026-8943..." class="search-input">
+                    <button class="btn btn-primary search-btn">
+                        <i data-lucide="search"></i>
+                        Localiser
+                    </button>
+                </div>
+
+                <div class="tech-features">
+                    <div class="tech-feature">
+                        <i data-lucide="satellite" class="text-accent"></i>
+                        <span>Tracking Satellite GPS</span>
+                    </div>
+                    <div class="tech-feature">
+                        <i data-lucide="bell-ring" class="text-accent"></i>
+                        <span>Alertes SMS & Email</span>
+                    </div>
+                    <div class="tech-feature">
+                        <i data-lucide="file-check" class="text-accent"></i>
+                        <span>Documents Numérisés</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tracking-visual fade-in delay-2">
+                <div class="map-visualization glass-card">
+                    <!-- Tech Map Animation Simulation -->
+                    <div class="pulse-node china"></div>
+                    <svg class="connection-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M 80 20 Q 50 10, 20 80" stroke="url(#gradient)" stroke-width="2" fill="none" class="animated-path"/>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0ea5e9" />
+                                <stop offset="100%" stop-color="#10b981" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="pulse-node cameroon"></div>
+                    
+                    <div class="status-panel">
+                        <div class="status-row">
+                            <span class="status-dot success"></span>
+                            <span>Départ: Guangzhou (Terminé)</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="status-dot active"></span>
+                            <span>En transit: Océan Indien</span>
+                        </div>
+                        <div class="status-row text-muted">
+                            <span class="status-dot pending"></span>
+                            <span>Arrivée: Port de Douala (Est. 12 Mai)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section section" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Demander un <span class="text-gradient">Devis</span></h2>
+                <p>Recevez une estimation rapide pour votre fret depuis la Chine. Aucun frais caché.</p>
+            </div>
+            <div class="quote-form-container glass-card fade-up delay-1">
+                <!-- Le formulaire utilise Web3Forms pour envoyer l'email silencieusement -->
+                <form id="quoteForm" class="quote-form">
+                    <input type="hidden" name="access_key" value="c500e87d-466f-4532-a8ae-6f0083b5b177">
+                    <input type="hidden" name="subject" value="Nouveau Devis Transit Chine-Cameroun !">
+                    <input type="hidden" name="from_name" value="Nouveau Client (SinoCam)">
+
+                    <div class="form-group">
+                        <label for="name">Nom complet ou Entreprise</label>
+                        <input type="text" id="name" name="name" required class="form-input" placeholder="Ex: Entreprise Sarl">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Adresse Email</label>
+                            <input type="email" id="email" name="email" required class="form-input" placeholder="votre@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+237 ...">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="origin">Port de Départ (Chine)</label>
+                            <select id="origin" name="origin" class="form-input">
+                                <option value="Guangzhou">Guangzhou</option>
+                                <option value="Shenzhen">Shenzhen</option>
+                                <option value="Ningbo">Ningbo</option>
+                                <option value="Shanghai">Shanghai</option>
+                                <option value="Yiwu">Yiwu</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="destination">Destination (Cameroun)</label>
+                            <select id="destination" name="destination" class="form-input">
+                                <option value="Douala">Douala (Port/Ville)</option>
+                                <option value="Kribi">Kribi (Port/Ville)</option>
+                                <option value="Yaoundé">Yaoundé</option>
+                                <option value="Autre">Autre ville</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="details">Détails de la marchandise</label>
+                        <textarea id="details" name="details" rows="4" required class="form-input" placeholder="Décrivez votre marchandise (poids estimé, volume CBM, type de produit...)"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <i data-lucide="send"></i> Envoyer la demande
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <i data-lucide="boxes" class="text-accent"></i>
+                        <span>SinoCam<span class="text-accent">.Logistics</span></span>
+                    </a>
+                    <p class="footer-desc">Le premier transitaire technologique connectant les marchés asiatiques au Cameroun avec transparence et efficacité.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="#">Fret Maritime</a></li>
+                        <li><a href="#">Fret Aérien</a></li>
+                        <li><a href="#">Achat & Sourcing</a></li>
+                        <li><a href="#">Dédouanement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Entreprise</h4>
+                    <ul>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">API Développeurs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Bureaux</h4>
+                    <p><strong>Cameroun:</strong> Akwa, Douala</p>
+                    <p><strong>Chine:</strong> Tianhe District, Guangzhou</p>
+                    <a href="mailto:contact@sinocam.logistics" class="text-accent mt-2 block">contact@sinocam.logistics</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SinoCam Logistics. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#"><i data-lucide="linkedin"></i></a>
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
