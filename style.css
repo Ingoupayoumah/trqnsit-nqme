@@ -727,3 +727,23 @@ textarea.form-input {
     .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
     .social-links { justify-content: center; }
 }
+
+/* intl-tel-input Customization for Tech Theme */
+.iti { width: 100%; flex: 1; }
+.iti__flag { background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/img/flags.png"); }
+@media (min-resolution: 2x) {
+  .iti__flag { background-image: url("https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/img/flags@2x.png"); }
+}
+.iti__country-list { 
+    background-color: var(--bg-card); 
+    color: white; 
+    border: 1px solid var(--border-color); 
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.iti__country.iti__highlight { background-color: rgba(255, 255, 255, 0.1); }
+.iti__country { padding: 10px 15px; }
+.iti__selected-flag { background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem 0 0 0.5rem; padding: 0 12px; }
+.iti__arrow { border-top-color: white; }
+.iti__arrow--up { border-bottom-color: white; }
+/* Laissons intl-tel-input gérer le padding automatiquement pour éviter la superposition */

@@ -2,6 +2,58 @@
 lucide.createIcons();
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize intl-tel-input
+    const phoneOptions = {
+        preferredCountries: ['cm', 'ci', 'sn'],
+        onlyCountries: ['cm', 'ga', 'cg', 'cd', 'td', 'cf', 'gq', 'ci', 'sn', 'ml', 'bf', 'ne', 'tg', 'bj', 'gn'],
+        separateDialCode: true,
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    };
+
+    const payPhoneInput = document.querySelector("#pay-phone");
+    const quotePhoneInput = document.querySelector("#phone");
+    
+    let itiPay, itiQuote;
+    if (payPhoneInput) itiPay = window.intlTelInput(payPhoneInput, phoneOptions);
+    if (quotePhoneInput) itiQuote = window.intlTelInput(quotePhoneInput, phoneOptions);
+
+    // Operator Logo Logic (Orange / MTN)
+    const orangeLogo = "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg";
+    const mtnLogo = "https://upload.wikimedia.org/wikipedia/commons/a/a5/MTN_Logo.svg";
+
+    function updateOperatorLogo(inputElement, logoElement, itiInstance) {
+        if (!inputElement || !logoElement || !itiInstance) return;
+        
+        inputElement.addEventListener('input', function() {
+            let val = this.value.replace(/\D/g, '');
+            const countryData = itiInstance.getSelectedCountryData();
+            
+            if (countryData.iso2 === 'cm') {
+                if (/^(69|655|656|657|658|659)/.test(val)) {
+                    logoElement.src = orangeLogo;
+                    logoElement.style.display = 'block';
+                } else if (/^(67|650|651|652|653|654|68)/.test(val)) {
+                    logoElement.src = mtnLogo;
+                    logoElement.style.display = 'block';
+                } else {
+                    logoElement.style.display = 'none';
+                }
+            } else {
+                logoElement.style.display = 'none';
+            }
+        });
+        
+        inputElement.addEventListener('countrychange', function() {
+            logoElement.style.display = 'none';
+        });
+    }
+
+    const payLogo = document.getElementById('pay-operator-logo');
+    const quoteLogo = document.getElementById('quote-operator-logo');
+    
+    updateOperatorLogo(payPhoneInput, payLogo, itiPay);
+    updateOperatorLogo(quotePhoneInput, quoteLogo, itiQuote);
+
     // Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
     
@@ -137,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const name = document.getElementById('pay-name').value;
             const email = document.getElementById('pay-email').value;
+            const phone = itiPay ? itiPay.getNumber() : document.getElementById('pay-phone').value;
             const amount = document.getElementById('pay-amount').value;
             const ref = document.getElementById('pay-ref').value;
             
@@ -151,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Appel de l'API Flutterwave
             FlutterwaveCheckout({
-                public_key: "FLWPUBK_TEST-REMPLACEZ_CECI_PAR_VOTRE_VRAIE_CLE_PUBLIQUE-X", // REMPLACER PAR LA VRAIE CLÉ
+                public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X", // REMARQUE: Ceci est une clé de test par défaut. Pour que le paiement marche réellement, tu DOIS créer un compte Flutterwave.
                 tx_ref: tx_ref,
                 amount: amount,
                 currency: "XAF", // Devise FCFA
@@ -161,12 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 customer: {
                     email: email,
+                    phone_number: phone,
                     name: name,
                 },
                 customizations: {
                     title: "SinoCam Logistics",
                     description: "Paiement de facture : " + ref,
-                    logo: "https://cdn.iconscout.com/icon/free/png-256/box-144-432047.png", // Logo temporaire
+                    logo: "https://cdn-icons-png.flaticon.com/512/3256/3256930.png", // Logo professionnel de logistique
                 },
                 callback: function (data) {
                     console.log("Paiement status :", data);
