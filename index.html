@@ -21,6 +21,7 @@
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#tracking">Suivi</a>
+                <a href="#payment">Paiement</a>
                 <a href="#about">Réseau</a>
                 <a href="#contact" class="btn btn-outline">Nous Contacter</a>
             </div>
@@ -157,6 +158,54 @@
         </div>
     </section>
 
+    <section class="payment-section section dark-section" id="payment">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Payer une <span class="text-accent">Facture</span></h2>
+                <p>Réglez vos frais de transit rapidement et en toute sécurité via Orange Money, MTN Mobile Money ou Carte Bancaire.</p>
+            </div>
+            
+            <div class="payment-container glass-card fade-up">
+                <div class="payment-info">
+                    <i data-lucide="shield-check" class="text-secondary" style="width: 48px; height: 48px; margin-bottom: 1rem;"></i>
+                    <h3>Paiement Sécurisé</h3>
+                    <p>Vos paiements sont traités par Flutterwave, le leader des paiements en Afrique. Nous ne conservons aucune de vos données financières.</p>
+                    <div class="payment-methods mt-2">
+                        <span class="badge">Orange Money</span>
+                        <span class="badge">MTN MoMo</span>
+                        <span class="badge">Visa / Mastercard</span>
+                    </div>
+                </div>
+                
+                <form id="paymentForm" class="payment-form">
+                    <div class="form-group">
+                        <label for="pay-name">Nom complet</label>
+                        <input type="text" id="pay-name" required class="form-input" placeholder="Votre nom">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pay-email">Adresse Email</label>
+                        <input type="email" id="pay-email" required class="form-input" placeholder="votre@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pay-ref">Numéro de Facture / Colis</label>
+                        <input type="text" id="pay-ref" required class="form-input" placeholder="Ex: FACT-2026-001">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pay-amount">Montant à payer (FCFA / XAF)</label>
+                        <input type="number" id="pay-amount" required min="100" class="form-input" placeholder="Ex: 50000">
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary submit-btn mt-2" style="background: var(--secondary); color: white; border: none;">
+                        <i data-lucide="credit-card"></i> Procéder au paiement
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <section class="quote-section section" id="contact">
         <div class="container">
             <div class="section-header fade-in">
@@ -268,6 +317,7 @@
         </div>
     </footer>
 
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

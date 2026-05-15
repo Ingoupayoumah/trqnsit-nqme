@@ -128,4 +128,57 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Gestion du paiement via Flutterwave
+    const paymentForm = document.getElementById('paymentForm');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('pay-name').value;
+            const email = document.getElementById('pay-email').value;
+            const amount = document.getElementById('pay-amount').value;
+            const ref = document.getElementById('pay-ref').value;
+            
+            // Génération d'une référence de transaction unique
+            const tx_ref = "SINC-" + Date.now() + "-" + Math.floor(Math.random() * 1000);
+
+            // Vérifier que FlutterwaveCheckout est bien chargé
+            if (typeof FlutterwaveCheckout !== 'function') {
+                alert("Erreur de chargement du module de paiement. Veuillez réessayer.");
+                return;
+            }
+
+            // Appel de l'API Flutterwave
+            FlutterwaveCheckout({
+                public_key: "FLWPUBK_TEST-REMPLACEZ_CECI_PAR_VOTRE_VRAIE_CLE_PUBLIQUE-X", // REMPLACER PAR LA VRAIE CLÉ
+                tx_ref: tx_ref,
+                amount: amount,
+                currency: "XAF", // Devise FCFA
+                payment_options: "mobilemoneyfranco, card", // Permet Mobile Money zone CFA et Cartes
+                meta: {
+                    invoice_ref: ref,
+                },
+                customer: {
+                    email: email,
+                    name: name,
+                },
+                customizations: {
+                    title: "SinoCam Logistics",
+                    description: "Paiement de facture : " + ref,
+                    logo: "https://cdn.iconscout.com/icon/free/png-256/box-144-432047.png", // Logo temporaire
+                },
+                callback: function (data) {
+                    console.log("Paiement status :", data);
+                    if (data.status === "successful") {
+                        alert("Succès ! Votre paiement a été traité.");
+                        paymentForm.reset();
+                    }
+                },
+                onclose: function() {
+                    // Code à exécuter si l'utilisateur ferme la fenêtre sans payer
+                }
+            });
+        });
+    }
 });
